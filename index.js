@@ -5,6 +5,7 @@ const cors = require('cors');
 const productRoute = require('./routes/product');
 const saleRoute = require('./routes/sale');
 const stripeRoute = require('./routes/stripe');
+const settingRoute = require('./routes/setting');
 const Stripe = require('stripe');
 
 const app = express();
@@ -25,6 +26,7 @@ app.use(cors());
 app.use('/api/product', productRoute);
 app.use('/api/sale', saleRoute);
 app.use('/api/stripe', stripeRoute);
+app.use('/api/setting', settingRoute);
 
 app.listen(process.env.PORT || 5001, () => {
   console.log(
