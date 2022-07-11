@@ -17,7 +17,17 @@ router.post('/add', async (req, res) => {
     title: req.body.title,
     description: req.body.description,
     sumInsured: req.body.sumInsured,
+    sumInsuredRemark: req.body.sumInsuredRemark,
     premium: req.body.premium,
+    currency: req.body.currency,
+    fixedPremium: req.body.fixedPremium,
+    category: req.body.category,
+    unit: req.body.unit,
+    remark: req.body.remark,
+    covers: req.body.covers,
+    image: req.body.image,
+    intro: req.body.intro,
+    creator: req.body.creator,
   });
 
   try {
