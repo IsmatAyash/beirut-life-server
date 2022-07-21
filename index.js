@@ -16,7 +16,7 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY, {
 });
 
 mongoose
-  .connect(process.env.MONGO_URL_LOCAL)
+  .connect(process.env.MONGO_URL)
   .then(() => console.log(`DB Connection Successful`))
   .catch((err) => {
     console.log(err);
