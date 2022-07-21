@@ -6,6 +6,7 @@ const productRoute = require('./routes/product');
 const saleRoute = require('./routes/sale');
 const stripeRoute = require('./routes/stripe');
 const settingRoute = require('./routes/setting');
+const bobpayRoute = require('./routes/bobpay');
 const Stripe = require('stripe');
 
 const app = express();
@@ -15,8 +16,8 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY, {
 });
 
 mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log('DB Connection Successful'))
+  .connect(process.env.MONGO_URL_LOCAL)
+  .then(() => console.log(`DB Connection Successful`))
   .catch((err) => {
     console.log(err);
   });
@@ -27,6 +28,7 @@ app.use('/api/product', productRoute);
 app.use('/api/sale', saleRoute);
 app.use('/api/stripe', stripeRoute);
 app.use('/api/setting', settingRoute);
+app.use('/api/bobpay', bobpayRoute);
 
 app.listen(process.env.PORT || 5001, () => {
   console.log(

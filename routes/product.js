@@ -25,8 +25,8 @@ router.post('/add', async (req, res) => {
     unit: req.body.unit,
     remark: req.body.remark,
     covers: req.body.covers,
-    image: req.body.image,
-    intro: req.body.intro,
+    image: req.body.image || '',
+    intro: req.body.intro || '',
     creator: req.body.creator,
   });
 

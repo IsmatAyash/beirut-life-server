@@ -13,10 +13,25 @@ router.get('/', async (req, res) => {
 router.post('/add', async (req, res) => {
   const newSale = new Sale({
     policyCode: req.body.policyCode,
+    policyNumber: req.body.policyNumber,
     title: req.body.title,
-    description: req.body.description,
-    sumInsured: req.body.sumInsured,
+    insuredName: req.body.insuredName,
+    dateOfBirth: req.body.dateOfBirth,
+    nationality: req.body.nationality,
+    address: req.body.address,
+    telephone: req.body.telephone,
+    email: req.body.email,
+    beneficiary: req.body.beneficiary,
+    issuanceDate: req.body.issuanceDate,
+    effectiveDate: req.body.effectiveDate,
+    duration: req.body.duration,
+    expiryDate: req.body.expiryDate,
+    currency: req.body.currency,
     premium: req.body.premium,
+    sumInsured: req.body.sumInsured,
+    policyRider: req.body.policyRider,
+    exclusion: req.body.exclusion,
+    intro: req.body.intro,
   });
 
   try {
