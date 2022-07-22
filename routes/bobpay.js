@@ -23,6 +23,12 @@ router.post('/', async (req, res) => {
 
     interaction: {
       operation: 'PURCHASE',
+      displayControl: {
+        billingAddress: 'HIDE',
+        customerEmail: 'HIDE',
+        orderSummary: 'SHOW',
+        shipping: 'HIDE',
+      },
       merchant: {
         name: 'Beirut Life',
         address: {
