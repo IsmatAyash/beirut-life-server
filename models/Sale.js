@@ -22,6 +22,8 @@ const SaleSchema = new mongoose.Schema(
     exclusion: { type: String },
     expiryDate: { type: String },
     status: { type: String, default: 'Pending' },
+    orderId: { type: String },
+    source: { type: String },
   },
   { timestamps: true }
 );

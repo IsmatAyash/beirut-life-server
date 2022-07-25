@@ -32,6 +32,8 @@ router.post('/add', async (req, res) => {
     policyRider: req.body.policyRider,
     exclusion: req.body.exclusion,
     intro: req.body.intro,
+    orderId: req.body.orderId,
+    source: req.body.source,
   });
 
   try {
