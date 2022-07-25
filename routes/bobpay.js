@@ -11,11 +11,12 @@ router.post('/', async (req, res) => {
   const hostname = 'test-bobsal.gateway.mastercard.com';
   const path = '/api/rest/version/61/merchant/BBROKERS/session';
   const url = `https://${hostname}${path}`;
+  const orderId = uid(8);
 
   const data = JSON.stringify({
     apiOperation: 'CREATE_CHECKOUT_SESSION',
     order: {
-      id: uid(8),
+      id: orderId,
       amount: req.body.premium,
       currency: req.body.currency,
       description: req.body.title,
@@ -50,7 +51,7 @@ router.post('/', async (req, res) => {
   };
   try {
     const resData = await axios.post(url, data, options);
-    res.status(201).json(resData.data);
+    res.status(201).json({ ...resData.data, orderId: orderId });
   } catch (error) {
     res.status(500).json(error);
   }
