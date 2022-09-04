@@ -10,6 +10,45 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  const {
+    title,
+    description,
+    covers,
+    premium,
+    sumInsured,
+    sumInsuredRemark,
+    fixedPremium,
+  } = req.body;
+  try {
+    const product = await Product.findByIdAndUpdate(
+      req.params.id,
+      {
+        title,
+        description,
+        premium,
+        sumInsured,
+        sumInsuredRemark,
+        fixedPremium,
+        covers,
+      },
+      { new: true }
+    );
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 // Add product
 router.post('/add', async (req, res) => {
   const newProduct = new Product({
