@@ -50,7 +50,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Add product
-router.post('/add', async (req, res) => {
+router.post('/', async (req, res) => {
   const newProduct = new Product({
     policyCode: req.body.policyCode,
     title: req.body.title,
@@ -74,6 +74,16 @@ router.post('/add', async (req, res) => {
     res.status(201).json(product);
   } catch (error) {
     res.status(500).json(error);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const prod = await Product.findByIdAndDelete(req.params.id);
+    if (!prod) return res.status(404).send();
+    return res.send(prod);
+  } catch (error) {
+    res.status(500).send(error);
   }
 });
 
