@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const productRoute = require('./routes/product');
+const coverageRoute = require('./routes/coverage');
 const saleRoute = require('./routes/sale');
 const stripeRoute = require('./routes/stripe');
 const settingRoute = require('./routes/setting');
@@ -25,6 +26,7 @@ mongoose
 app.use(express.json());
 app.use(cors());
 app.use('/api/product', productRoute);
+app.use('/api/coverage', coverageRoute);
 app.use('/api/sale', saleRoute);
 app.use('/api/stripe', stripeRoute);
 app.use('/api/setting', settingRoute);
