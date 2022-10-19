@@ -28,6 +28,9 @@ router.put('/:id', async (req, res) => {
     sumInsured,
     sumInsuredRemark,
     fixedPremium,
+    active,
+    intro,
+    creator,
   } = req.body;
   try {
     const product = await Product.findByIdAndUpdate(
@@ -40,6 +43,9 @@ router.put('/:id', async (req, res) => {
         sumInsuredRemark,
         fixedPremium,
         covers,
+        active,
+        intro,
+        creator,
       },
       { new: true }
     );
@@ -57,9 +63,10 @@ router.post('/', async (req, res) => {
     description: req.body.description,
     sumInsured: req.body.sumInsured,
     sumInsuredRemark: req.body.sumInsuredRemark,
-    premium: req.body.premium,
     currency: req.body.currency,
+    premium: req.body.premium,
     fixedPremium: req.body.fixedPremium,
+    active: req.body.active,
     category: req.body.category,
     unit: req.body.unit,
     remark: req.body.remark,

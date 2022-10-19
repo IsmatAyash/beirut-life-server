@@ -10,6 +10,7 @@ const ProductSchema = new mongoose.Schema(
     currency: { type: String, default: 'usd' },
     premium: { type: Number, required: true },
     fixedPremium: { type: Boolean, default: true },
+    active: { type: Boolean, default: true },
     category: { type: String, required: true },
     unit: { type: String },
     remark: { type: String },
