@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const SaleSchema = new mongoose.Schema(
   {
-    policyCode: { type: String },
+    productCode: { type: String },
     policyNumber: { type: String, required: true },
     quantity: { type: Number, default: 1 },
     insuredName: { type: String, required: true },

@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
 router.post('/add', async (req, res) => {
   const newSale = new Sale({
-    policyCode: req.body.policyCode,
+    productCode: req.body.productCode,
     policyNumber: req.body.policyNumber,
     title: req.body.title,
     insuredName: req.body.insuredName,

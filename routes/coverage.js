@@ -40,7 +40,7 @@ router.put('/:id', async (req, res) => {
 
 // Add Coverage
 router.post('/', async (req, res) => {
-  const newCoverage = new Product({
+  const newCoverage = new Coverage({
     productCode: req.body.productCode,
     description: req.body.description,
     minAge: req.body.minAge,
@@ -59,7 +59,7 @@ router.delete('/:id', async (req, res) => {
   try {
     const cover = await Coverage.findByIdAndDelete(req.params.id);
     if (!cover) return res.status(404).send();
-    return res.send(prod);
+    return res.send(cover);
   } catch (error) {
     res.status(500).send(error);
   }

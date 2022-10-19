@@ -52,7 +52,7 @@ router.put('/:id', async (req, res) => {
 // Add product
 router.post('/', async (req, res) => {
   const newProduct = new Product({
-    policyCode: req.body.policyCode,
+    productCode: req.body.productCode,
     title: req.body.title,
     description: req.body.description,
     sumInsured: req.body.sumInsured,
@@ -71,6 +71,7 @@ router.post('/', async (req, res) => {
 
   try {
     const product = await newProduct.save();
+    console.log('PRODUCT added in server', product);
     res.status(201).json(product);
   } catch (error) {
     res.status(500).json(error);
