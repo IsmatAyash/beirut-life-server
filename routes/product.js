@@ -78,7 +78,6 @@ router.post('/', async (req, res) => {
 
   try {
     const product = await newProduct.save();
-    console.log('PRODUCT added in server', product);
     res.status(201).json(product);
   } catch (error) {
     res.status(500).json(error);
