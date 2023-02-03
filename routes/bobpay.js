@@ -6,10 +6,11 @@ const auth = {
   username: process.env.BOBPAY_USERNAME,
   password: process.env.BOBPAY_PASSWORD,
 };
+const url_username=process.env.BOBPAY_URL_USERNAME
 
 router.post('/', async (req, res) => {
   const hostname = 'test-bobsal.gateway.mastercard.com';
-  const path = '/api/rest/version/61/merchant/BBROKERS/session';
+  const path = `/api/rest/version/61/merchant/${url_username}/session`;
   const url = `https://${hostname}${path}`;
   const orderId = uid(8);
 
@@ -21,7 +22,6 @@ router.post('/', async (req, res) => {
       currency: req.body.currency,
       description: req.body.title,
     },
-
     interaction: {
       operation: 'PURCHASE',
       displayControl: {
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
         shipping: 'HIDE',
       },
       merchant: {
-        name: 'Beirut Life',
+        name: url_username,
         address: {
           line1: 'Jdeidehh Highway, Le Boulevard Bldg. 10th floor',
           line2: 'P.O.BOX 11-7354 Beirut - Lebanon',
