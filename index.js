@@ -32,6 +32,8 @@ app.use('/api/stripe', stripeRoute);
 app.use('/api/setting', settingRoute);
 app.use('/api/bobpay', bobpayRoute);
 
+console.log('Marhaba from node js')
+
 app.listen(process.env.PORT || 5001, () => {
   console.log(
     `Server is running. Listening to port ${process.env.PORT || 5001}`
